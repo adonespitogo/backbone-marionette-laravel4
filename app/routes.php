@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', array('uses' => 'HomeController@showWelcome'));
 
 Route::get('hello/{foo}/{bar}', function($id, $foo){
 	echo $id.'-'.$foo;
