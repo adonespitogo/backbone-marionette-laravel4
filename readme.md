@@ -1,21 +1,41 @@
-## Laravel PHP Framework
+<h1>Backbone.Marionette in Laravel</h1>
 
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.png)](https://packagist.org/packages/laravel/framework) [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework)
+<h3>Backbone.Marionette Setup for Laravel</h3>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+<strong>Scripts</strong>
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+This setup is packed with <a href="https://github.com/CodeSleeve/asset-pipeline">Codesleeve's asset-pipeline</a>.
+Read the documentation about asset pipeline (for non-railsians). This is a great tool to manage dependcies and organization of your
+js files (I personally use coffescript in writing my apps).
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+<strong>Loading templates into your Backbone App:</strong>
 
-## Official Documentation
+Templates should be stored inside app/views/app folder. These templates should be wrapped inside a
+<code>script</code> tag with type <code>text/html</code> or <code>text/template</code>.
 
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
+Example:
 
-### Contributing To Laravel
+```
+	<script id='links-template' type="text/html">
+		<div class='nav'>
+			<ul>
 
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
+			</ul>
+		</div> 
+	</script>
+```
 
-### License
+I created a TemplateHelper library and added it in autoloads. This library simply concatenates every file it finds
+in the app/views/app folder and store it in app/views/backbone_templates.html file.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+To load the backbone view templates in your application main view, simply echo <code>Template::load()</code>
+anywhere in your application's main view. This will concatinate every file inside app/views/app folder in local environment
+and loads the app/views/backbone_templates.html file in production.
+
+<strong>Enjoy!</strong>
+
+To do:
+
+ - Improve template compilation
+ - Clean tests
+ - Improve file organization

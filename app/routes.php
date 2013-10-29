@@ -11,8 +11,9 @@
 |
 */
 
-Route::get('/', array('uses' => 'HomeController@showWelcome'));
-
-Route::get('hello/{foo}/{bar}', function($id, $foo){
-	echo $id.'-'.$foo;
+Route::get('/', function()
+{
+	return View::make('index');
 });
+
+Route::resource('users', 'UserController');
