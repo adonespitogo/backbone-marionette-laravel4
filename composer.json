@@ -17,9 +17,6 @@
 			"app/database/seeds",
 			"app/tests/TestCase.php",
 			"app/libraries"
-		],
-		"files" :[
-			"app/libraries/TemplateHelper.php"
 		]
 	},
 	"scripts": {
