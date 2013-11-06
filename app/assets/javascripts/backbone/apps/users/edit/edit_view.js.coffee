@@ -2,11 +2,14 @@
 
 	
 	class Edit.Form extends Marionette.ItemView
+
 		template: '#edit-user-view'
 
 		triggers:
-			"submit form" : "submit:edit:form"
-
+			"submit form" :
+				event: "submit:edit:form"
+				preventDefault: true
+				
 		ui:
 			submitBtn : "button[type=submit]"
 
