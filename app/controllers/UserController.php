@@ -1,79 +1,45 @@
 <?php
 
-class UserController extends \BaseController {
+class UserController extends BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
 	public function index()
 	{
-		return View::make('admins.users.index');
+		$currentPage = Input::get('page') - 1;
+		$pageSize = Input::get('per_page');
+		$users = User::skip($currentPage*$pageSize)->take($pageSize)->get()->toArray();
+		$state = array('total_entries' => User::count());
+		return Response::json(array($state, $users));
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
+	public function store(){
+		$user = new User();
+		$user->first_name = Input::get('first_name');
+		$user->last_name = Input::get('last_name');
+		$user->username = Input::get('username');
+		$user->save();
+		return Response::json($user->toArray());
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function update($id)
 	{
-		//
+		// return Response::make(null, '500');
+		$user = User::find($id);
+		$user->username = Input::get('username');
+		$user->first_name = Input::get('first_name');
+		$user->last_name = Input::get('last_name');
+		$user->save();
+
+		return Response::json($user->toArray());
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+	public function show($id){
+		$user = User::find($id);
+		return Response::json($user->toArray());
+	}
+
 	public function destroy($id)
 	{
-		//
+		User::where('id', $id)->limit(1)->delete();
 	}
 
 }

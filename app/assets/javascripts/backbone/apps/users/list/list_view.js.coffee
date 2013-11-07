@@ -25,22 +25,19 @@
 		itemViewContainer: 'tbody'
 
 		collectionEvents:
-			"add" : "render"
-			"remove" : "render"
-
-	class List.Panel extends App.Views.ItemView
-		template: "#panel-view"
-
-		collectionEvents:
 			"reset" : "render"
-			"remove" : "render"
 
 		triggers:
-			"click #add-new-user" : "add:new:user"
+			"click a.prev":
+				event: "userlist:prev"
+				preventDefault: true
+
+			"click a.next" :
+				event: "userlist:next"
+				preventDefault: true
 
 	class List.Layout extends App.Views.Layout
 		template: "#user-list-layout"
 
 		regions:
-			panelRegion: "#panel-region"
 			usersRegion: "#users-region"

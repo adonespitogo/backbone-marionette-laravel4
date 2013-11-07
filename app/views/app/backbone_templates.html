@@ -86,7 +86,6 @@
 
 </script><script type="text/template" id='user-list-layout'>
 	<div class='container'>
-		<div id='panel-region'></div>
 		<div id='users-region'></div>
 	</div>
 </script>
@@ -95,6 +94,7 @@
 	<table class='table table-striped'>
 		<thead>
 			<tr>
+				<th>ID</th>
 				<th>first name</th>
 				<th>last name</th>
 				<th>Options</th>
@@ -103,9 +103,16 @@
 		<tbody>
 		</tbody>
 	</table>
+	<div class='pagination-holder'>
+		<ul class='pagination'>
+		<li><a href="#" class='prev'>Prev</a></li>
+		<li><a href="#" class='next'>Next</a></li>
+		</ul>
+	</div>
 </script>
 
 <script type="text/template" id='user-list'>
+	<td><%= id %></td>
 	<td><%= first_name %></td>
 	<td><%= last_name %></td>
 	<td class='user-options'>

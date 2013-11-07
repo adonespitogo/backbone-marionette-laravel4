@@ -13,13 +13,13 @@
 //= require lib/jquery
 //= require lib/underscore
 //= require lib/backbone
-//= require lib/backbone.marionette
 //= require lib/backbone.paginator
+//= require lib/backbone.pageable
+//= require lib/backbone.marionette
 //= require lib/backbone.transition
 //= require_tree ./backbone/config
 //= require backbone/app
 //= require_tree ./backbone/views/_base
-//= require_tree ./backbone/views/_ui
 //= require_tree ./backbone/apps
 //= require_tree ./backbone/entities
 //= require lib/bootstrap

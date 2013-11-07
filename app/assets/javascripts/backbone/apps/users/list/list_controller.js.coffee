@@ -6,17 +6,9 @@
 			App.request "user:entities", (users) =>
 				@layout = @getLayoutView()
 				@layout.on "show", =>
-					@showPanel users
 					@showUsers users
 
 				App.mainRegion.show(@layout)
-
-		showPanel: (users)->
-			panelView = @getPanelView users
-			panelView.on "add:new:user", ->
-				App.navigate("#users/new", trigger: true)
-
-			@layout.panelRegion.show panelView
 
 		showUsers: (users) ->
 			usersView = @getUsersView users
@@ -26,6 +18,12 @@
 
 			view = new List.Users
 						collection: users
+
+			view.on "userlist:next", (args) ->
+				args.collection.getNextPage() unless !args.collection.hasNext()
+
+			view.on "userlist:prev", (args) ->
+				args.collection.getPreviousPage() unless !args.collection.hasPrevious()
 
 			view.on "itemview:edit:user:clicked", (args) ->
 				user = args.model
@@ -41,10 +39,6 @@
 					args.$el.fadeOut ->
 						args.model.destroy()
 
-
-		getPanelView: (users)->
-			new	List.Panel
-				collection: users
 
 		getLayoutView: ->
 			new List.Layout

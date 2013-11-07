@@ -3,42 +3,15 @@
 	class Entities.User extends Entities.Model
 		urlRoot: "users"
 
-	class Entities.UsersCollection extends Entities.Collection
+	class Entities.UsersCollection extends Entities.PageableCollection
 		model: Entities.User
 		url: "users"
 
-		# paginated_core:
-		# 	type: "GET"
-		# 	dataType: 'json'
-		# 	url: "users"
+		state:
+			firstPage: 1
+			pageSize: 5
+			totalRecords: 50
 
-		# paginator_ui:
-		# 	firstPage: 0
-		# 	currentPage: 0
-		# 	perPage: 1
-		# 	totalPages: 10
-
-		# server_api:
-		# 	$filter: '',
-		# 	$top: =>
-		# 		@perPage
-
-		# 	$skip: =>
-		# 		@currentPage * @perPage
-
-		# 	$orderBy: 'last_name'
-
-		# 	$format: 'json'
-		# 	$inlinecount: 'allpages'
-
-		# parse: (response) =>
-		# 	console.log response
-
-		# 	tags = response
-
-		# 	@totalPages =  Math.ceil(response.__count / @perPage)
-
-		# 	tags
 
 
 	api =
