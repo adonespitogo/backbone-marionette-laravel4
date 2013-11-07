@@ -5,6 +5,13 @@
 
 		template: '#edit-user-view'
 
+		bindings:
+			'text .first-name' : 'first_name'
+			'value input[name="first_name"]' : 'first_name'
+
+			'text .last-name' : 'last_name'
+			'value input[name="last_name"]' : 'last_name'
+
 		triggers:
 			"submit form" :
 				event: "submit:edit:form"
@@ -12,6 +19,9 @@
 				
 		ui:
 			submitBtn : "button[type=submit]"
+
+		onDomRefresh: ->
+			@bindModel()
 
 
 		serialize : =>

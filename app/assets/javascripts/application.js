@@ -13,6 +13,7 @@
 //= require lib/jquery
 //= require lib/underscore
 //= require lib/backbone
+//= require lib/backbone-bindings
 //= require lib/backbone.paginator
 //= require lib/backbone.pageable
 //= require lib/backbone.marionette
