@@ -18,9 +18,14 @@
 //= require lib/backbone.pageable
 //= require lib/backbone.marionette
 //= require lib/backbone.transition
+//= require lib/bootstrap
 //= require_tree ./backbone/config
 //= require backbone/app
 //= require_tree ./backbone/views/_base
 //= require_tree ./backbone/apps
 //= require_tree ./backbone/entities
-//= require lib/bootstrap
+//= require_self
+
+$(document).ready(function(){
+	App.start();
+});

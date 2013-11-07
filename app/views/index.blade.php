@@ -3,10 +3,9 @@
 	<head>
 		<title>Backbone</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- 		{{HTML::style('bootstrap/css/bootstrap.css')}}
-		{{HTML::style('css/sticky.css')}} -->
+		{{HTML::style('css/bootstrap.min.css')}}
+		{{HTML::style('css/sticky-footer.css')}}
 		{{ stylesheet_link_tag() }}
-		{{ TemplateHelper::load() }}
 	</head>
 	<body>
 
@@ -25,9 +24,6 @@
 		</div>
 			
 		{{ javascript_include_tag() }}
-		<script type="text/javascript">
-			App.start();
-		</script>
 
 	</body>
 </html>

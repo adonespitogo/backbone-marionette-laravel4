@@ -4,7 +4,7 @@
 
 		toBeEdited = false
 
-		template: "#user-list"
+		template: "users/list/templates/user"
 
 		tagName: 'tr'
 
@@ -16,10 +16,10 @@
 			"change" : "render"
 
 	class List.Empty extends App.Views.ItemView
-		template: "#empty-user-list"
+		template: "users/list/templates/empty_user"
 
 	class List.Users extends App.Views.CompositeView
-		template: '#user-list-view'
+		template: 'users/list/templates/user_list'
 		itemView: List.User
 		emptyView: List.Empty
 		itemViewContainer: 'tbody'
@@ -37,7 +37,7 @@
 				preventDefault: true
 
 	class List.Layout extends App.Views.Layout
-		template: "#user-list-layout"
+		template: "users/list/templates/list_layout"
 
 		regions:
 			usersRegion: "#users-region"

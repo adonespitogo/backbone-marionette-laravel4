@@ -3,7 +3,7 @@
 	
 	class Edit.Form extends Marionette.ItemView
 
-		template: '#edit-user-view'
+		template: 'users/edit/tmpl/edit'
 
 		bindings:
 			'text .first-name' : 'first_name'
