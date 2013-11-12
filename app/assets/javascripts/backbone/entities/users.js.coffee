@@ -12,7 +12,25 @@
 			pageSize: 5
 			totalRecords: 50
 
+	# class Entities.UsersCollection extends Entities.PaginatedCollection
+	# 	model: Entities.User
 
+	# 	pagination_core:
+	# 		type: 'GET'
+	# 		dataType: 'json'
+	# 		url: "users"
+
+	# 	paginator_ui:
+	# 		firstPage: 1
+	# 		currentPage: 1,
+	# 		perPage: 3
+	# 		totalPages: 10
+
+	# 	server_api:
+	# 		'page' : ->
+	# 			@currentPage
+	# 		'per_page' : ->
+	# 			@perPage
 
 	api =
 		setUserEntitties: (users) ->

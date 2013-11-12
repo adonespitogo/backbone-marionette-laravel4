@@ -1,28 +1,24 @@
-<h1>Backbone.Marionette in Laravel</h1>
+<h1>Backbone.Marionette Setup for Laravel</h1>
 
-<h3>Backbone.Marionette Setup for Laravel</h3>
-
-<strong>Scripts</strong>
-
-This setup is packed with <a href="https://github.com/CodeSleeve/asset-pipeline">Codesleeve's asset-pipeline</a>.
+This setup is using <a href="https://github.com/CodeSleeve/asset-pipeline">Codesleeve's asset-pipeline</a>.
 Read the documentation about asset pipeline (for non-railsians). This is a great tool to manage dependcies and organization of your
 js files (I personally use coffescript in writing my apps).
 
-<strong>Loading templates into your Backbone App:</strong>
+<strong>File structure</strong>
 
-Templates should be stored inside app/views/app folder. These templates should be wrapped inside a
-<code>script</code> tag with type <code>text/html</code> or <code>text/template</code>.
 
-Example:
 
-```
-	<script id='links-template' type="text/html">
-		<div class='nav'>
-			<ul>
+<strong>Templates</strong>
 
-			</ul>
-		</div> 
-	</script>
+I configured the Backbone.Marionette's<a href="https://github.com/marionettejs/backbone.marionette/blob/master/docs/marionette.renderer.md">Renderer</a> to look in <code>app/assets/javascripts/backbone/apps</code> directory using JST.
+
+An example code to load referrence a template in your Marionette views:
+
+```coffee-script
+
+class UsersApp.UserList extends Marionette.ItemView
+	template: JST["user/list/templates/userList"]
+
 ```
 
 I created a TemplateHelper library and added it in autoloads. This library simply concatenates every file it finds
